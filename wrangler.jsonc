@@ -1,16 +1,22 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   // 新站点：改 name、routes、database_name/id、bucket_name、queue 名称，再改 src/config/site.ts
-  "name": "ooc-anime",
+  "name": "ooc",
   "main": "src/server.ts",
   "compatibility_date": "2026-06-19",
-  "compatibility_flags": ["nodejs_compat"],
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
   "workers_dev": true,
-  "observability": { "enabled": true },
+  "observability": {
+    "enabled": true
+  },
   "assets": {
     "directory": "./dist/client",
     "binding": "ASSETS",
-    "run_worker_first": ["/api/*"]
+    "run_worker_first": [
+      "/api/*"
+    ]
   },
   "vars": {
     "APP_ENV": "development",
@@ -48,14 +54,29 @@
     {
       "binding": "DB",
       "database_name": "ooc-anime",
-      "database_id": "00000000-0000-0000-0000-000000000000",
+      "database_id": "5f6377a3-70e8-4a30-bc99-bf737794e244",
       "migrations_dir": "migrations"
     }
   ],
-  "r2_buckets": [{ "binding": "MEDIA", "bucket_name": "ooc-anime-media" }],
-  "kv_namespaces": [{ "binding": "KV", "id": "00000000000000000000000000000000" }],
+  "r2_buckets": [
+    {
+      "binding": "MEDIA",
+      "bucket_name": "ooc-anime-media"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "KV",
+      "id": "b54d404bfb3b4346afc819cb3ba05e82"
+    }
+  ],
   "queues": {
-    "producers": [{ "binding": "VIDEO_QUEUE", "queue": "ooc-anime-jobs" }],
+    "producers": [
+      {
+        "binding": "VIDEO_QUEUE",
+        "queue": "ooc-anime-jobs"
+      }
+    ],
     "consumers": [
       {
         "queue": "ooc-anime-jobs",
@@ -65,15 +86,49 @@
         "dead_letter_queue": "ooc-anime-jobs-dlq"
       },
       // 死信：同一个 Worker 消费，任务判失败、退积分，健康检查据此告警（src/server.ts 按 -dlq 后缀分流）
-      { "queue": "ooc-anime-jobs-dlq", "max_batch_size": 10, "max_batch_timeout": 5, "max_retries": 3 }
+      {
+        "queue": "ooc-anime-jobs-dlq",
+        "max_batch_size": 10,
+        "max_batch_timeout": 5,
+        "max_retries": 3
+      }
     ]
   },
   "ratelimits": [
-    { "name": "UPLOAD_LIMITER", "namespace_id": "17781", "simple": { "limit": 20, "period": 60 } },
-    { "name": "GENERATE_LIMITER", "namespace_id": "17782", "simple": { "limit": 10, "period": 60 } },
-    { "name": "AUTH_LIMITER", "namespace_id": "17783", "simple": { "limit": 30, "period": 60 } }
+    {
+      "name": "UPLOAD_LIMITER",
+      "namespace_id": "17781",
+      "simple": {
+        "limit": 20,
+        "period": 60
+      }
+    },
+    {
+      "name": "GENERATE_LIMITER",
+      "namespace_id": "17782",
+      "simple": {
+        "limit": 10,
+        "period": 60
+      }
+    },
+    {
+      "name": "AUTH_LIMITER",
+      "namespace_id": "17783",
+      "simple": {
+        "limit": 30,
+        "period": 60
+      }
+    }
   ],
   // Cloudflare Email Service（交易邮件、管理员提醒）。本地 dev / e2e 只模拟发送；不要加 "remote": true，否则会真的发信
-  "send_email": [{ "name": "EMAIL" }],
-  "triggers": { "crons": ["*/5 * * * *"] }
+  "send_email": [
+    {
+      "name": "EMAIL"
+    }
+  ],
+  "triggers": {
+    "crons": [
+      "*/5 * * * *"
+    ]
+  }
 }
