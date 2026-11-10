@@ -26,6 +26,8 @@
   },
   "dependencies": {
     "@cloudflare/vite-plugin": "1.64.0",
+    "@emnapi/core": "^1.11.3",
+    "@emnapi/wasi-threads": "^2.2.0",
     "@tailwindcss/vite": "4.3.1",
     "@tanstack/react-router": "1.170.45",
     "@tanstack/react-start": "1.169.3",
