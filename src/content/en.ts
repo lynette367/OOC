@@ -33,18 +33,18 @@ export function en(s: S) {
   const uploadMb = Math.round(s.upload.maxBytes / 1024 / 1024)
   // 每种风格的展示名和一句话介绍；site.styles 加风格时这里补一项（缺了 typecheck 报错），zh.ts 同
   const styles: Record<StyleId, StyleCopy> = {
-    'neon-shuffle-v1': { name: k, tagline: 'The original routine, beat for beat.' },
+    'ooc-anime-v1': { name: k, tagline: 'The signature OOC anime routine, beat for beat.' },
   }
   return {
     styles,
     meta: {
       // 首页 title 不加品牌后缀：品牌通常已含关键词，控制在 60 字符内（seo:check 会校验）
       homeTitle: `${k} AI Video Generator from One Photo`,
-      homeDescription: `Upload one photo and get your own ${k} video in minutes. Same choreography, same framing, starring you. ${subs ? 'Buy credits once or subscribe monthly.' : 'Pay per video with credits that never expire.'}`,
+      homeDescription: `Upload one photo to create your viral ${k} video. Star in a playable anime scene with high-energy motions and anime image to video AI.`,
       pricingTitle: `Pricing – ${b}`,
       pricingDescription: subs
-        ? `Credit packs and monthly or yearly plans for ${k} AI videos. Pack credits never expire, cancel a plan anytime, failed renders are refunded automatically.`
-        : `Simple credit packs for ${k} AI videos. Pay once, credits never expire, failed renders are refunded automatically.`,
+        ? `Credit packs and flexible plans for ${k} AI videos. Pack credits never expire, cancel anytime, and failed renders refund automatically.`
+        : `Simple credit packs for ${k} AI videos. Pay per second, credits never expire, and failed renders refund automatically.`,
       contactTitle: `Contact – ${b}`,
       contactDescription: `Questions about billing, refunds, a failed render or partnerships? Reach the ${b} team, we usually reply within one business day.`,
       signInTitle: `Sign in – ${b}`,
@@ -60,7 +60,7 @@ export function en(s: S) {
       breadcrumbHome: 'Home',
     },
     alt: {
-      inputPhoto: `Example input photo for a ${k} AI video`,
+      inputPhoto: `Example input photo for an ${k} AI video`,
     },
     nav: {
       features: 'Features',
@@ -79,12 +79,12 @@ export function en(s: S) {
     },
     hero: {
       title: `${k} AI Video Generator`,
-      subtitle: `Turn a single selfie into your own take on the ${k} clip. We keep the choreography, timing and framing of the original and cast you as the lead.`,
+      subtitle: `Turn any portrait or cosplay photo into a viral ${k} video. Powered by cutting-edge anime image to video technology, drop right into a dynamic playable anime routine featuring iconic OOC game moves.`,
       badge: `Trending on ${s.trendPlatform}`,
-      original: 'Original',
-      aiVersion: 'AI version',
-      chips: ['Same choreography', 'Same framing', 'You as the lead'],
-      creditNote: 'Sample clips are placeholders made for this demo.',
+      original: 'Original reference',
+      aiVersion: 'AI anime version',
+      chips: ['Playable anime motion', 'Iconic OOC style', 'You as the anime lead'],
+      creditNote: 'Sample clips are demonstrations produced for this preview.',
     },
     generator: {
       // 只给读屏用（sr-only），不放关键词，避免隐藏文字堆词
@@ -92,11 +92,11 @@ export function en(s: S) {
       stepPhoto: 'Your photo',
       dropTitle: 'Drop a photo or click to upload',
       dropHint: 'JPG, PNG or WebP · up to 10 MB',
-      guidance: 'Best results: one person, facing the camera, even lighting, head and shoulders visible. Avoid sunglasses, masks and heavy filters.',
+      guidance: 'Best results: one person or character, facing the camera, even lighting, head and shoulders visible. Avoid sunglasses, heavy masks and blurry screenshots.',
       change: 'Change photo',
       uploading: 'Uploading…',
       uploaded: 'Photo ready',
-      stepStyle: 'Dance style',
+      stepStyle: 'Animation style',
       stepLength: 'Length',
       seconds: (n: number) => `${n} s`,
       full: 'full',
@@ -142,50 +142,50 @@ export function en(s: S) {
     },
     madeWith: {
       eyebrow: `Made with ${b}`,
-      title: 'One photo in, one finished clip out',
-      body: 'No editing timeline, no green screen. Upload a clear photo, choose a length and the render keeps every beat of the original routine.',
-      photoLabel: 'Uploaded photo',
-      resultLabel: 'Generated clip',
+      title: 'One photo in, one playable anime scene out',
+      body: 'No 3D rigging, no keyframing timelines. Upload a photo or character art, pick your duration, and our anime image to video engine animates the full performance with crisp timing.',
+      photoLabel: 'Uploaded portrait',
+      resultLabel: 'Generated anime video',
     },
     problem: {
-      eyebrow: 'The catch',
-      title: `Joining the ${k} trend is harder than it looks`,
+      eyebrow: 'The challenge',
+      title: `Making an ${k} video by hand is brutally hard`,
       items: [
-        { title: 'You have to learn the routine', body: 'Getting every move right takes real practice, and nerves still show once the camera is rolling.' },
-        { title: 'Someone has to film it', body: 'You need a friend or a tripod, plus a background that matches the framing of the original.' },
-        { title: 'The timing is unforgiving', body: 'Half a beat late looks obvious next to the original, so it turns into take after take.' },
+        { title: 'Complex 2D and 3D rigging', body: 'Animating an anime character or real photo normally requires drawing countless in-betweens or configuring complex 3D tracking skeletons.' },
+        { title: 'Preserving stylized visual identity', body: 'Generic video filters blur details and warp anime aesthetics, completely losing the charm of a crisp playable anime aesthetic.' },
+        { title: 'Unforgiving keyframe pacing', body: 'Capturing the snappy, hyper-expressive timing of an OOC game idle loop takes days of tedious manual frame-by-frame adjustments.' },
       ],
     } as ProblemBlock | null,
     withWithout: {
       eyebrow: 'Side by side',
-      title: `Filming it yourself vs. using ${b}`,
-      without: 'Filming it yourself',
+      title: `Manual animation vs. ${b}`,
+      without: 'Manual animation',
       with: `With ${b}`,
       rows: [
-        { without: 'Learn the choreography first', with: 'No dancing needed, one photo is enough' },
-        { without: 'Find a friend or set up a tripod', with: 'No camera setup' },
-        { without: 'Retake until the timing lines up', with: 'Timing follows the original clip' },
-        { without: 'Edit and export on your phone', with: 'Download a finished MP4' },
+        { without: 'Draw frame by frame or build 3D skeletons', with: 'Instant anime image to video synthesis from one photo' },
+        { without: 'Deal with messy facial distortion and blurred lines', with: 'Clean outlines and consistent character features' },
+        { without: 'Spend days matching camera angles and audio cues', with: 'Ready-to-post playable anime clip in minutes' },
+        { without: 'Master expensive, complex animation software', with: 'Zero animation skills required—just upload and render' },
       ],
     } as WithWithoutBlock | null,
     // 首页关键词区块（one-page SEO）：H2 带关键词，上新词时按趋势本身重写 whatIs
     howTo: {
       eyebrow: 'How it works',
-      title: `How to make a ${k} AI video in 3 steps`,
+      title: `How to make an ${k} AI video in 3 steps`,
       steps: [
-        { title: 'Upload one clear photo', body: 'One person, facing the camera, in even light. JPG, PNG or WebP up to 10 MB.' },
-        { title: 'Choose a length', body: 'Take a short hook or the full routine. One credit covers one second of video.' },
-        { title: 'Generate and download', body: 'The render finishes in a few minutes. Download the MP4 without a watermark and post it anywhere.' },
+        { title: 'Upload one clear photo', body: 'Choose a selfie, cosplay portrait, or character drawing in JPG, PNG, or WebP format up to 10 MB.' },
+        { title: 'Choose your scene length', body: 'Select a punchy short clip or the full sequence. Each second of video costs 1 credit.' },
+        { title: 'Generate and download', body: 'Your render completes in minutes. Download the unwatermarked HD MP4 ready for social media.' },
       ],
       cta: 'Start with your photo',
       guide: 'Read the step-by-step guide',
     },
     whatIs: {
       eyebrow: 'About the trend',
-      title: `What is ${k}?`,
+      title: `What is the ${k} trend?`,
       paragraphs: [
-        `${k} is a short vertical clip that people re-create with their own face and style. The routine is quick, the beat is easy to recognise and the camera stays on a single performer, so every new version instantly reads as part of the trend.`,
-        `${b} is an AI dance video generator built around that one clip. Instead of learning the steps and filming, you upload a single photo and the model renders you performing the original routine with the same timing and framing.`,
+        `The viral ${k} trend took social media by storm as anime creators, cosplayers, and VTuber fans began animating popular characters into exaggerated, out-of-character (OOC) comedy sequences. Drawing inspiration from arcade character select screens and fighting game victory stances, the trend pairs classic anime poise with infectious, high-energy OOC game dance loops.`,
+        `${b} is an anime image to video platform created specifically around this aesthetic. Instead of wrestling with keyframes or green screens, you upload one portrait and our AI transforms you into the star of your own playable anime sequence, keeping every dramatic beat and camera tilt of the authentic ${k} video.`,
       ],
       guide: `Read the full ${k} trend guide`,
     },
@@ -193,7 +193,7 @@ export function en(s: S) {
       eyebrow: 'At a glance',
       title: `${b} specs`,
       rows: [
-        { label: 'Input', value: `One clear photo of one person, ${uploadTypes} up to ${uploadMb} MB` },
+        { label: 'Input', value: `One clear photo of one person or character, ${uploadTypes} up to ${uploadMb} MB` },
         { label: 'Styles', value: s.styles.map((style) => styles[style.id].name).join(', ') },
         { label: 'Video length', value: `${s.durations.map((d) => d.seconds).join(', ')} seconds` },
         { label: 'Output', value: `Vertical ${s.template.aspectRatio} MP4, no watermark` },
@@ -205,28 +205,28 @@ export function en(s: S) {
     } as SpecsBlock | null,
     features: {
       eyebrow: 'Features',
-      title: `Everything you need for a ${k} clip`,
+      title: `Everything you need for an ${k} video`,
       items: [
-        { title: 'One photo is enough', body: 'A single clear selfie is all the model needs to rebuild you inside the routine.' },
-        { title: 'Faithful motion', body: 'Every step, pause and camera move follows the reference clip frame by frame.' },
-        { title: 'Vertical and ready to post', body: `Exports in ${s.template.aspectRatio} so it drops straight into Reels, Shorts or ${s.trendPlatform}.` },
-        { title: 'Pick your length', body: 'Grab a short hook or the full routine. You only pay for the seconds you render.' },
-        { title: 'Private by default', body: `Uploads are stored privately, used only for your render and ${photoRetention}.` },
+        { title: 'One photo is all it takes', body: 'A single clear image is all our anime image to video model requires to animate full-body choreography.' },
+        { title: 'Authentic arcade motion', body: 'Snappy keyframe curves and dynamic camera work recreate the unmistakable feel of an OOC game celebration.' },
+        { title: 'Vertical HD, ready to post', body: `Exports directly in ${s.template.aspectRatio} format so your video drops seamlessly into ${s.trendPlatform}, Reels, and Shorts.` },
+        { title: 'Flexible scene lengths', body: 'Choose between quick viral hooks and full-length sequences. You only pay for the exact seconds rendered.' },
+        { title: 'Private & secure by default', body: `Your uploads remain private, used only to render your video and ${photoRetention}.` },
         {
-          title: 'Fair billing',
+          title: 'Fair & transparent billing',
           body: subs
-            ? 'Credit packs never expire and plans can be canceled anytime. If a render fails, the credits go straight back to your balance.'
-            : 'Credits never expire. If a render fails, the credits go straight back to your balance.',
+            ? 'Credit packs never expire and subscription plans can be canceled anytime. If any render fails, credits return instantly to your balance.'
+            : 'Credits never expire. If any render fails, credits return instantly to your balance.',
         },
       ],
     },
     ideas: {
-      eyebrow: 'Ideas',
-      title: 'What people make with it',
+      eyebrow: 'Creative ideas',
+      title: `What people create with ${b}`,
       items: [
-        { title: 'Surprise the group chat', body: 'Drop yourself into the routine and send it before anyone else jumps on the trend.' },
-        { title: 'Birthday shout-outs', body: 'Use a friend’s photo (with their OK) and turn it into a dance-floor greeting card.' },
-        { title: 'Creator content in minutes', body: 'Ride the trend on your channel without filming, lighting or learning the steps.' },
+        { title: 'Cosplay & avatar showcases', body: 'Turn your cosplay photos and digital avatars into animated playable anime clips that stand out in the OOC Anime trend.' },
+        { title: 'Arcade character intro loops', body: 'Give your original character (OC) or selfie the iconic presentation of a selectable fighter in an OOC game.' },
+        { title: 'Group chat memes & gifts', body: 'Surprise friends by turning their everyday portraits into dramatic, high-energy anime dance celebrations.' },
       ],
       cta: 'Try it with your photo',
     },
@@ -280,13 +280,17 @@ export function en(s: S) {
       items: [
         {
           q: `What is ${b}?`,
-          a: `${b} is an online tool that recreates the ${k} video with you as the performer, using just one photo.`,
-          guide: { article: 'trend', label: `Where the ${k} clip came from` },
+          a: `${b} is an online ${k} AI platform that uses specialized anime image to video technology to turn any portrait or character illustration into a dynamic playable anime motion clip.`,
+          guide: { article: 'trend', label: `Origin and culture of the ${k} trend` },
         },
         {
           q: 'Which photo works best?',
-          a: 'A recent photo of one person facing the camera, with even light and the head and shoulders in frame. Group shots, sunglasses and strong filters lower the quality.',
-          guide: { article: 'howTo', label: `Photo tips for a better ${k} AI video` },
+          a: 'A sharp, front-facing portrait or cosplay photo in even light, with head and shoulders clearly framed. Avoid heavy sunglasses, face coverings, or blurry low-light shots for the cleanest anime image to video render.',
+          guide: { article: 'howTo', label: `Photo tips for a crisp ${k} AI video` },
+        },
+        {
+          q: 'Can I use anime character art or VTuber avatars?',
+          a: 'Yes! Our model works on real human selfies, cosplay shots, and stylized 2D anime illustrations, adapting them naturally to the rhythmic OOC game choreography.',
         },
         { q: 'How long does a render take?', a: 'Most videos finish in 2–8 minutes depending on length and queue. You can close the page; finished videos wait in My videos.' },
         {
@@ -304,7 +308,7 @@ export function en(s: S) {
     },
     finalCta: {
       title: `Your ${k} moment is one photo away`,
-      body: 'Upload a selfie, pick a length and watch yourself take the lead.',
+      body: 'Upload your portrait, choose a length, and watch yourself star in a high-energy anime sequence.',
       cta: 'Create my video',
     },
     footer: {
@@ -565,9 +569,9 @@ export function en(s: S) {
     guides: {
       nav: 'Guides',
       title: `${k} guides`,
-      metaTitle: `${k} AI Video Guides – ${b}`,
-      description: `Guides to the ${k} trend and to making your own ${k} AI video: where it came from, which photos work best and step-by-step tips.`,
-      intro: `Background on the ${k} trend and practical tips for turning one photo into a ${k} AI video.`,
+      metaTitle: `${k} AI Video & Animation Guides – ${b}`,
+      description: `Guides to the ${k} trend and making your own ${k} AI video: background lore, anime image to video tips, and step-by-step tutorials.`,
+      intro: `Explore the background of the ${k} trend and discover practical techniques for turning one still photo into a playable anime video.`,
       related: 'Related guides',
       styleDemo: `See the ${k} routine in action`,
       faqTitle: 'FAQ',
@@ -626,7 +630,7 @@ export function en(s: S) {
       account_conflict: `This email is linked to a different Google account. Sign in with that account, or email ${s.supportEmail} for help.`,
     } as Record<string, string>,
     legal: {
-      updated: '2026-10-21',
+      updated: '2026-11-10',
       privacy: {
         title: 'Privacy Policy',
         sections: [
@@ -718,32 +722,70 @@ export function en(s: S) {
     articles: {
       trend: {
         title: `What is the ${k} trend?`,
-        description: `Where the ${k} clip came from, why it spread and how to join in with an AI version of yourself.`,
-        intro: `The ${k} clip is a short vertical dance video that turned into a template: people re-create the same routine, beat for beat, and post their own version.`,
+        description: `Explore the viral ${k} trend: from anime fandom and OOC game loops to generating your own playable anime clip with AI.`,
+        intro: `The ${k} trend has exploded across social platforms, combining the charm of Japanese animation with unpredictable, high-octane out-of-character energy.`,
         sections: [
-          { h: 'Why it caught on', p: ['The routine is short, the timing is easy to recognise and the camera work is simple enough that the performer is always the focus. That makes every new version feel like a fresh take on the same joke.'] },
-          { h: 'How people join in', p: ['Some learn the steps and film themselves. Others use AI to place themselves in the original clip, which keeps the exact timing and camera moves without filming anything.'] },
-          { h: 'Do it with AI', p: [`With ${b} you upload one photo and receive a vertical video in which you perform the routine. Choose a short hook or the full length and share it straight away.`] },
+          {
+            h: 'The cultural roots of Out-of-Character (OOC) anime',
+            p: [
+              'In anime and gaming fandoms, "OOC" (out-of-character) describes beloved characters acting contrary to their usual serious, stoic, or aloof personalities for comedic effect. When digital creators started animating brooding anime heroes performing rhythmic, upbeat dance routines, the OOC Anime trend was born.',
+              'The sharp contrast between sleek anime aesthetics and delightfully silly choreography resonated immediately with fans. Clips quickly racked up millions of views across TikTok, Instagram Reels, and YouTube Shorts as creators vied to place their favorite archetypes in the most unexpected routines.',
+            ],
+          },
+          {
+            h: 'The visual thrill of playable anime and OOC game aesthetics',
+            p: [
+              'A defining hallmark of a great OOC Anime video is its unmistakable homage to retro and modern Japanese arcade titles. The fluid animation, exaggerated anticipation, and dramatic camera pans look straight out of an OOC game victory sequence or character selection screen.',
+              'Viewers are not merely watching a dance; they are immersed in a dynamic, playable anime spectacle where their avatar commands the spotlight with crisp comic flair.',
+            ],
+          },
+          {
+            h: 'Joining the trend with AI anime image to video tools',
+            p: [
+              'In the past, animating this kind of choreography required weeks of hand-drawn rotoscoping, 3D character rigging, or intricate motion capture setups. Most fans were locked out by the steep technical barrier.',
+              `With ${b}, modern anime image to video synthesis makes participation effortless. By uploading a single photo, anyone can produce an authentic ${k} video with synchronized motion, flawless framing, and pristine vertical export.`,
+            ],
+          },
         ],
       },
       howTo: {
-        title: `How to make a ${k} AI video`,
-        description: `A step-by-step guide to making your own ${k} video from a single photo.`,
-        intro: `You can create your own ${k} video in about five minutes. Here is the full process and a few tips for the best result.`,
+        title: `How to make an ${k} AI video`,
+        description: `Step-by-step tutorial for turning any portrait, selfie, or cosplay photo into a viral ${k} video using ${b}.`,
+        intro: `Creating your own ${k} video takes less than five minutes. Follow this complete guide to craft an eye-catching playable anime clip from a single photo.`,
         sections: [
-          { h: '1. Pick the right photo', p: ['Choose a recent, sharp photo of one person looking at the camera. Even daylight works best. Avoid sunglasses, hats that cover the face and beauty filters.'] },
           {
-            h: '2. Upload and choose a length',
-            p: ['Sign in, drop the photo into the generator and pick a length. Shorter clips render faster and cost fewer credits; the full version follows the complete routine.'],
-            table: { head: ['Length', 'Credits'], rows: s.durations.map((d) => [`${d.seconds} seconds`, String(d.credits)]) },
+            h: '1. Select the ideal source photo',
+            p: [
+              'Your reference photo determines the visual fidelity and likeness of your final render. For best results, use a sharp, well-lit image of a single person or character facing the camera.',
+              'High-definition cosplay portraits, clean selfies, and stylized 2D anime illustrations all work remarkably well. Avoid heavy motion blur, dark backlighting, sunglasses, or busy group photos.',
+            ],
           },
-          { h: '3. Confirm consent and generate', p: ['Tick the consent box to confirm the photo is yours or that you have permission, then start the render. You can leave the page while it works.'] },
-          { h: '4. Download and share', p: ['When the video is ready, download the MP4 from the generator or from My videos and post it wherever you like.'] },
+          {
+            h: '2. Upload your image and choose your clip length',
+            p: [
+              'Sign in to your account, drag your photo into the generator, and pick the duration that matches your content strategy. Shorter durations deliver punchy social hooks, while the full length renders the complete routine.',
+              'Our transparent credit model assigns 1 credit per second of video, giving you complete flexibility over your rendering budget.',
+            ],
+            table: { head: ['Duration', 'Credits', 'Best For'], rows: s.durations.map((d) => [`${d.seconds} seconds`, String(d.credits), d.seconds <= 6 ? 'TikTok hook & quick teaser' : 'isFull' in d && d.isFull ? 'Complete choreography & YouTube Shorts' : 'Standard story & viral loop']) },
+          },
+          {
+            h: '3. Confirm authorization and initiate render',
+            p: [
+              'Check the consent box to confirm you have rights to use the image, then start the generation. Our backend motion transfer pipeline maps your character’s features onto the target sequence.',
+              'Feel free to leave the tab or browse other pages while the generation runs. Once finished, your video will be waiting in your dashboard.',
+            ],
+          },
+          {
+            h: '4. Download, add audio, and share',
+            p: [
+              'Download your high-definition, unwatermarked vertical MP4 directly to your device. Pair it with the trending track of your choice on TikTok, Instagram, or YouTube Shorts and join the viral ${k} movement.',
+            ],
+          },
         ],
         faq: [
-          { q: `How long does a ${k} AI video take to make?`, a: `Most videos finish in 2–8 minutes depending on length and queue. You can close the page while it renders; finished videos wait in My videos.` },
-          { q: 'How many credits does a video cost?', a: `Each second of video costs one credit, so ${s.durations.map((d) => `${d.seconds} seconds is ${d.credits} credits`).join(', ')}. Credits are refunded automatically if a render fails.` },
-          { q: 'Which photo gives the best result?', a: 'A recent, sharp photo of one person facing the camera in even light. Avoid sunglasses, hats that cover the face and beauty filters.' },
+          { q: `How long does an ${k} AI video take to render?`, a: 'Most generations finish in 2 to 8 minutes depending on video duration and server queue. You can safely close your browser while it renders.' },
+          { q: 'How does anime image to video handle character styling?', a: 'Our motion engine tracks facial proportions and silhouette outlines, applying the dance motion while preserving character hair, costume, and signature artistic details.' },
+          { q: 'Can I upload digital illustrations or VTuber models?', a: 'Yes. In addition to real human photos and cosplay shots, the generator easily animates digital 2D and 3D character illustrations into fluid OOC game motion.' },
         ],
       },
     } satisfies Record<ArticleKey, ArticleContent>,

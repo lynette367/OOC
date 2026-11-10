@@ -15,11 +15,11 @@ export const LOCALE_META: Record<Locale, { tag: string; ogLocale: string; name: 
 }
 
 export const site = {
-  keyword: 'Neon Shuffle',
-  brandName: 'Neon Shuffle AI',
-  logoMark: 'NS',
-  domain: 'example.com',
-  supportEmail: 'support@example.com',
+  keyword: 'OOC Anime',
+  brandName: 'OOC Anime AI',
+  logoMark: 'OA',
+  domain: 'oocai.com',
+  supportEmail: 'support@oocai.com',
   // 社媒平台名称（用于 “Viral on TikTok” 之类标签）
   trendPlatform: 'TikTok',
   ogImage: '/og.png',
@@ -38,9 +38,9 @@ export const site = {
   styles: [
     {
       // 写入 generations.template_id，发布后不要改
-      id: 'neon-shuffle-v1',
+      id: 'ooc-anime-v1',
       // 键 = durations[].id，每个档位都要有
-      sources: { short: 'neon-shuffle-v1-6s.mp4', medium: 'neon-shuffle-v1-12s.mp4', full: 'neon-shuffle-v1-18s.mp4' },
+      sources: { short: 'ooc-anime-v1-6s.mp4', medium: 'ooc-anime-v1-12s.mp4', full: 'ooc-anime-v1-18s.mp4' },
       // 这种风格的 prompt，覆盖 video.yir.prompt 和 video.nanoapi.prompt；null = 用默认
       prompt: null as string | null,
       // yir 两步走（可选）：先用图片模型把照片里的人合成进源视频首帧，再拿合成图做动作参考，成片保留源视频的场景。
@@ -197,16 +197,16 @@ export const site = {
   // 文章正文的 faq 可选（content 的 articles[key].faq）：有就在正文后渲染折叠问答并输出 FAQPage 结构化数据
   // 段落的 table 可选（sections[i].table，{ head, rows }）：渲染在该段文字之后，第一列作行标题，适合对比表和规格表；窄屏横向滚动
   articles: [
-    { key: 'trend', slug: 'neon-shuffle-ai-trend', publishedAt: '2026-10-20', updatedAt: '2026-10-20', cover: '/guides/neon-shuffle-ai-trend.jpg' },
-    { key: 'howTo', slug: 'how-to-make-neon-shuffle-ai-video', publishedAt: '2026-10-20', updatedAt: '2026-10-20', style: 'neon-shuffle-v1' },
+    { key: 'trend', slug: 'ooc-anime-ai-trend', publishedAt: '2026-11-10', updatedAt: '2026-11-10', cover: '/guides/neon-shuffle-ai-trend.jpg' },
+    { key: 'howTo', slug: 'how-to-make-ooc-anime-ai-video', publishedAt: '2026-11-10', updatedAt: '2026-11-10', style: 'ooc-anime-v1' },
   ],
 
   seo: {
     // 长尾词：不输出 meta keywords（Google 不用），由 npm run seo:check 检查首页正文是否覆盖
-    secondaryKeywords: ['Neon Shuffle AI', 'Neon Shuffle video', 'Neon Shuffle trend', 'AI dance video'],
+    secondaryKeywords: ['OOC Anime AI', 'OOC Anime video', 'OOC Anime trend', 'OOC game', 'playable anime', 'anime image to video'],
     // 首次上线日期与站点页面（首页、价格、法律页等）最近一次内容更新日期：首页视频 uploadDate、sitemap lastmod。文章用各自的日期
-    publishedAt: '2026-10-20',
-    updatedAt: '2026-10-20',
+    publishedAt: '2026-11-10',
+    updatedAt: '2026-11-10',
     // Search Console / Bing Webmaster 选“HTML 标记”验证时填 content 值；用 DNS 验证则留空
     googleVerification: '',
     bingVerification: '',
